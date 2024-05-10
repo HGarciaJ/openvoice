@@ -147,8 +147,4 @@ with gr.Blocks(analytics_enabled=False) as demo:
     tts_button.click(predict, [input_text_gr, style_gr, ref_gr, tos_gr], outputs=[out_text_gr, audio_gr, ref_audio_gr])
 
 demo.queue()  
-demo.launch(debug=True)
-
-
-
 demo.launch(debug=True, show_api=True, share=args.share)
