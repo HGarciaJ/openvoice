@@ -1,8 +1,12 @@
-FROM python:3.9-bullseye
+# Use the base image of Ubuntu
+FROM ubuntu:latest
 
 # Update the system and install necessary dependencies
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     sudo \
+    python3.9 \
+    python3-distutils \
+    python3-pip \
     ffmpeg \
     git
 
@@ -28,6 +32,14 @@ RUN aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co
 RUN unzip /app/openvoice/checkpoints_1226.zip 
 RUN mv /app/openvoice/checkpoints /app/openvoice/openvoice/checkpoints 
 RUN mv /app/openvoice/resources /app/openvoice/openvoice/resources 
+
+# Download the checkpoint_v2 folder
+RUN aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://myshell-public-repo-hosting.s3.amazonaws.com/openvoice/checkpoints_v2_0417.zip -d /app/openvoice/openvoice -o checkpoints_v2.zip
+RUN unzip /app/openvoice/openvoice/checkpoints_v2.zip -d /app/openvoice/openvoice
+
+# Install MeloTTS and download unidic
+RUN pip install git+https://github.com/myshell-ai/MeloTTS.git
+RUN python -m unidic download
 
 EXPOSE 7860
 
