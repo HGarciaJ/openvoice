@@ -13,7 +13,7 @@ RUN pip install --upgrade pip
 WORKDIR /app
 
 # Install openai-whisper
-RUN git clone https://github.com/myshell-ai/OpenVoice openvoice
+RUN git clone https://github.com/HectorGJordan/openvoice openvoice
 
 RUN pip install gradio==3.50.2 langid faster-whisper whisper-timestamped unidecode eng-to-ipa pypinyin cn2an
 
