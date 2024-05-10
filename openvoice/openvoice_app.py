@@ -8,6 +8,10 @@ from openvoice import se_extractor
 from openvoice.api import ToneColorConverter
 from melo.api import TTS
 
+parser = argparse.ArgumentParser()
+parser.add_argument("--share", action='store_true', default=False, help="make link public")
+args = parser.parse_args()
+
 # Definir las rutas y configuraciones
 ckpt_converter = 'checkpoints_v2/converter'
 device = "cuda:0" if torch.cuda.is_available() else "cpu"
