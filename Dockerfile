@@ -1,12 +1,8 @@
-# Use the base image of Ubuntu
-FROM ubuntu:latest
+FROM python:3.9-bullseye
 
 # Update the system and install necessary dependencies
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     sudo \
-    python3.9 \
-    python3-distutils \
-    python3-pip \
     ffmpeg \
     git
 
