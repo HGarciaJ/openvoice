@@ -4,18 +4,16 @@
 
 - [Quick Use](#quick-use): directly use OpenVoice without installation.
 - [Linux Install](#linux-install): for researchers and developers only.
-- [Common Installation Steps (V1 and V2)](#common-installation-steps-v1-and-v2): Installation steps applicable to both OpenVoice V1 and V2.
-- [OpenVoice V1](#openvoice-v1): Installation and usage instructions for OpenVoice V1.
-- [OpenVoice V2](#openvoice-v2): Installation and usage instructions for OpenVoice V2.
-- [Windows Install (VS Code)](#windows-install-vs-code): Installation instructions for Windows users.
-
+    - [V1](#openvoice-v1)
+    - [V2](#openvoice-v2)
+- [Install on Other Platforms](#install-on-other-platforms): unofficial installation guide contributed by the community
 
 ## Quick Use
 
-For most users, the most convenient way is to directly use the free TTS and Instant Voice Clone services in MyShell.
+The input speech audio of OpenVoice can be in **Any Language**. OpenVoice can clone the voice in that speech audio, and use the voice to speak in multiple languages. For quick use, we recommend you to try the already deployed services:
 
 - [British English](https://app.myshell.ai/widget/vYjqae)
-- [American English](https://app.myshell.ai/widget/eIRjAf)
+- [American English](https://app.myshell.ai/widget/nEFFJf)
 - [Indian English](https://app.myshell.ai/widget/V3iYze)
 - [Australian English](https://app.myshell.ai/widget/fM7JVf)
 - [Spanish](https://app.myshell.ai/widget/NNFFVz)
@@ -23,8 +21,6 @@ For most users, the most convenient way is to directly use the free TTS and Inst
 - [Chinese](https://app.myshell.ai/widget/fU7nUz)
 - [Japanese](https://app.myshell.ai/widget/IfIB3u)
 - [Korean](https://app.myshell.ai/widget/q6ZjIn)
-
-OpenVoice supports any language as long as you have a base speaker in that language. The OpenVoice team already did the most difficult part (tone color converter training) for you. Base speaker TTS model is relatively easy to train, and multiple existing open-source repositories support it. If you don't want to train by yourself, simply use the OpenAI TTS model as the base speaker.
 
 ## Minimal Demo
 
@@ -38,34 +34,17 @@ For users who want to quickly try OpenVoice and do not require high quality or s
 
 ## Linux Install
 
-This section is only for developers and researchers who are familiar with Linux, Python, and PyTorch.
+This section is only for developers and researchers who are familiar with Linux, Python and PyTorch. Clone this repo, and run
 
-### Common Installation Steps (V1 and V2)
+```
+conda create -n openvoice python=3.9
+conda activate openvoice
+git clone git@github.com:myshell-ai/OpenVoice.git
+cd OpenVoice
+pip install -e .
+```
 
 No matter if you are using V1 or V2, the above installation is the same.
-
-**1. Clone the Repository:**
-    ```
-    bash
-    git clone git@github.com:myshell-ai/OpenVoice.git
-    cd OpenVoice 
-    ```
-    
-**2. Create a Python Environment:**
-    ```
-    conda create -n openvoice python=3.9
-    conda activate openvoice
-    ```
-
-**3. Install OpenVoice:**
-    ```
-    pip install -e .
-    ```
-
-**3. Next Step:**
-    Depending on the version you are using follow the next steps: 
-- [OpenVoice V1](#openvoice-v1): Installation and usage instructions for OpenVoice V1.
-- [OpenVoice V2](#openvoice-v2): Installation and usage instructions for OpenVoice V2.
 
 ### OpenVoice V1
 
@@ -92,9 +71,13 @@ python -m unidic download
 **Demo Usage.** Please see [`demo_part3.ipynb`](../demo_part3.ipynb) for example usage of OpenVoice V2. Now it natively supports English, Spanish, French, Chinese, Japanese and Korean.
 
 
-## Windows Install (VS Code)
+## Install on Other Platforms
 
-Please use [this guide](https://github.com/Alienpups/OpenVoice/blob/main/docs/USAGE_WINDOWS.md) if you want to install and use OpenVoice on Windows.
+This section provides the unofficial installation guides by open-source contributors in the community:
 
-
-
+- Windows
+  - [Guide](https://github.com/Alienpups/OpenVoice/blob/main/docs/USAGE_WINDOWS.md) by [@Alienpups](https://github.com/Alienpups)
+  - You are welcome to contribute if you have a better installation guide. We will list you here.
+- Docker
+  - [Guide](https://github.com/StevenJSCF/OpenVoice/blob/update-docs/docs/DF_USAGE.md) by [@StevenJSCF](https://github.com/StevenJSCF)
+  - You are welcome to contribute if you have a better installation guide. We will list you here.

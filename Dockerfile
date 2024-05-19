@@ -13,7 +13,7 @@ RUN pip install --upgrade pip
 WORKDIR /app
 
 # Install openai-whisper
-RUN git clone https://github.com/HectorGJordan/openvoice openvoice
+RUN git clone https://github.com/HectorGJordan/openvoice.git
 
 RUN pip install gradio==3.50.2 langid faster-whisper whisper-timestamped unidecode eng-to-ipa pypinyin cn2an
 
@@ -22,6 +22,8 @@ WORKDIR /app/openvoice
 
 RUN pip install -e .
 RUN pip install soundfile librosa inflect jieba silero
+RUN pip install git+https://github.com/myshell-ai/MeloTTS.git
+RUN python -m unidic download
 
 RUN apt -y install -qq aria2 unzip
 RUN aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/camenduru/OpenVoice/resolve/main/checkpoints_1226.zip -d /app/openvoice -o checkpoints_1226.zip
